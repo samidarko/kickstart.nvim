@@ -91,6 +91,14 @@ require('lazy').setup({
     },
   },
 
+  {
+	  'L3MON4D3/LuaSnip',
+	  -- follow latest release.
+	  version = 'v2.*', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+	  -- install jsregexp (optional!).
+	  build = 'make install_jsregexp'
+  },
+
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
@@ -137,10 +145,8 @@ require('lazy').setup({
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    },
+    main = "ibl",
+    opts = {},
   },
 
   -- "gc" to comment visual regions/lines
@@ -194,7 +200,8 @@ require('lazy').setup({
 vim.o.hlsearch = false
 
 -- Make line numbers default
-vim.wo.number = true
+-- vim.wo.number = true
+vim.wo.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
